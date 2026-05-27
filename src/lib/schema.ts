@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://mechanicus2.nanobananas.me';
-export const SITE_NAME = 'Mechanicus II Guide & Tools';
+export const SITE_NAME = 'Nanobananas Game Guides';
 
 export function getWebSiteSchema() {
   return {
@@ -8,7 +8,7 @@ export function getWebSiteSchema() {
     name: SITE_NAME,
     url: SITE_URL,
     description:
-      'Unofficial fan-made guide and tools site for Warhammer 40,000: Mechanicus II. Crafting calculator, build planner, and strategy guides.',
+      'Unofficial game guides hub for launch guides, strategy walkthroughs, troubleshooting, tools, and player-friendly reference pages.',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -25,6 +25,8 @@ export function getArticleSchema(params: {
   description: string;
   slug: string;
   datePublished: string;
+  dateModified?: string;
+  gameTitle?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -33,21 +35,59 @@ export function getArticleSchema(params: {
     description: params.description,
     url: `${SITE_URL}/guides/${params.slug}`,
     datePublished: params.datePublished,
-    dateModified: params.datePublished,
+    dateModified: params.dateModified ?? params.datePublished,
+    about: params.gameTitle
+      ? {
+          '@type': 'VideoGame',
+          name: params.gameTitle,
+        }
+      : undefined,
     author: {
       '@type': 'Organization',
-      name: 'Mechanicus II Guide',
+      name: SITE_NAME,
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Mechanicus II Guide',
+      name: SITE_NAME,
       url: SITE_URL,
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/guides/${params.slug}`,
     },
+  };
+}
+
+export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function getItemListSchema(params: {
+  name: string;
+  description: string;
+  items: Array<{ name: string; url: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: params.name,
+    description: params.description,
+    itemListElement: params.items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
   };
 }
 

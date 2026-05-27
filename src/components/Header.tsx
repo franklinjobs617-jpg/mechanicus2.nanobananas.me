@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { label: 'Home', href: '/' },
+  { label: 'Games', href: '/games' },
   { label: 'Guides', href: '/guides' },
   { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
@@ -22,10 +22,10 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[rgba(230,194,0,0.4)] bg-[#162B24] text-[#E6C200] font-bold text-lg transition-colors group-hover:border-[#E6C200]">
-            M
+            N
           </div>
           <span className="hidden sm:inline text-[#F0F0F0] font-semibold text-lg tracking-wide">
-            Mechanicus II
+            Nanobananas
           </span>
         </Link>
 

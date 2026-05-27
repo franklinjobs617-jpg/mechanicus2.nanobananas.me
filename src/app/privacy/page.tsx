@@ -2,11 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Mechanicus 2 Fan Site',
+  title: 'Privacy Policy - Nanobananas Game Guides',
   description:
-    'Privacy Policy for the Mechanicus 2 unofficial fan site. Learn how we handle localStorage data, cookies, and protect your privacy.',
+    'Privacy Policy for Nanobananas Game Guides. Learn how we handle localStorage data, cookies, analytics, and privacy.',
+  alternates: {
+    canonical: 'https://mechanicus2.nanobananas.me/privacy',
+  },
   openGraph: {
-    title: 'Privacy Policy - Mechanicus 2 Fan Site',
+    title: 'Privacy Policy - Nanobananas Game Guides',
     description:
       'Privacy Policy for the Mechanicus 2 unofficial fan site. Data handling, cookies, and privacy protection.',
   },

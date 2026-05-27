@@ -3,13 +3,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Mechanicus 2 Tools - Crafting Calculator & Build Planner',
+  title: 'Game Tools - Nanobananas Game Guides',
   description:
-    'Unofficial Mechanicus 2 tools: crafting calculator for material costs and build planner for unit loadouts. Plan your Warhammer 40k Mechanicus II strategy.',
+    'Fan-made tools from Nanobananas Game Guides. Current tools support the Warhammer 40,000: Mechanicus II guide vertical.',
+  alternates: {
+    canonical: 'https://mechanicus2.nanobananas.me/tools',
+  },
   openGraph: {
-    title: 'Mechanicus 2 Tools - Crafting Calculator & Build Planner',
+    title: 'Game Tools - Nanobananas Game Guides',
     description:
-      'Unofficial Mechanicus 2 tools: crafting calculator and build planner for Warhammer 40k Mechanicus II.',
+      'Fan-made tools for supported game guide verticals.',
     type: 'website',
   },
 };
@@ -52,7 +55,7 @@ export default function ToolsPage() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-3xl font-bold text-[#F0F0F0] tracking-wide mb-2">Tools</h1>
       <p className="text-[#B0B0B0] mb-8">
-        Practical calculators and planners for Warhammer 40,000: Mechanicus II.
+        Practical calculators and planners. Current tools support Warhammer 40,000: Mechanicus II.
       </p>
 
       <div className="grid gap-6 sm:grid-cols-2">

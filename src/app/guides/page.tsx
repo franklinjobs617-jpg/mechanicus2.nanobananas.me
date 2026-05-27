@@ -1,16 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { guides, guideSlugs } from '@/lib/guides';
+import { guides, sortedGuideSlugs } from '@/lib/guides';
 
 export const metadata: Metadata = {
-  title: 'Mechanicus 2 Guides - Strategy & Walkthroughs',
+  title: 'Guides - Nanobananas Game Guides',
   description:
-    'Unofficial Mechanicus 2 guides: beginner tips, Tech-Priest vs Necron factions, best units, optimal builds, and Necron campaign walkthrough.',
+    'Browse Nanobananas Game Guides for 007 First Light, Warhammer 40,000: Mechanicus II, launch help, walkthroughs, settings, and tools.',
+  alternates: {
+    canonical: 'https://mechanicus2.nanobananas.me/guides',
+  },
   openGraph: {
-    title: 'Mechanicus 2 Guides - Strategy & Walkthroughs',
+    title: 'Guides - Nanobananas Game Guides',
     description:
-      'Unofficial Mechanicus 2 guides: beginner tips, faction breakdowns, best units, builds, and campaign walkthrough.',
+      'Game guides, launch help, walkthroughs, settings, troubleshooting, and strategy resources.',
     type: 'website',
   },
 };
@@ -18,14 +21,19 @@ export const metadata: Metadata = {
 export default function GuidesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-[#F0F0F0] tracking-wide mb-2">Guides</h1>
-      <p className="text-[#B0B0B0] mb-8 max-w-2xl">
-        Unofficial strategy guides and walkthroughs for Warhammer 40,000: Mechanicus II.
-        All content is written by fans and rephrased from gameplay experience.
-      </p>
+      <div className="mb-8 max-w-3xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#E6C200]">
+          All guides
+        </p>
+        <h1 className="mt-3 text-3xl font-bold text-[#F0F0F0] tracking-wide">Guides</h1>
+        <p className="mt-3 text-[#B0B0B0] leading-relaxed">
+          Search-intent focused guides across supported game clusters. 007 First Light pages are
+          prioritized during launch, while Mechanicus II strategy content remains available.
+        </p>
+      </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {guideSlugs.map((slug) => {
+        {sortedGuideSlugs.map((slug) => {
           const guide = guides[slug];
           return (
             <Link
@@ -33,7 +41,6 @@ export default function GuidesPage() {
               href={`/guides/${slug}`}
               className="group rounded-lg border border-[rgba(230,194,0,0.2)] bg-[#162B24] overflow-hidden transition-all duration-200 hover:border-[rgba(230,194,0,0.5)] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[rgba(230,194,0,0.05)]"
             >
-              {/* Thumbnail */}
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={guide.thumbnail}
@@ -48,9 +55,11 @@ export default function GuidesPage() {
                 </span>
               </div>
 
-              {/* Content */}
               <div className="p-5">
-                <h2 className="text-base font-semibold text-[#F0F0F0] group-hover:text-[#E6C200] transition-colors leading-snug">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#E6C200]/80">
+                  {guide.gameTitle ?? 'Mechanicus II'}
+                </p>
+                <h2 className="mt-2 text-base font-semibold text-[#F0F0F0] group-hover:text-[#E6C200] transition-colors leading-snug">
                   {guide.title}
                 </h2>
                 <p className="mt-2 text-sm text-[#B0B0B0] leading-relaxed line-clamp-3">

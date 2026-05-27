@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const FOOTER_COPYRIGHT = `Fan-made website. Not affiliated with Bulwark Studios, Kasedo Games or Games Workshop. All game names, trademarks, artwork and intellectual properties belong to their respective owners. All content and tools are created for reference and entertainment purposes only. If you have copyright concerns, please contact: support@nanobananas.me. We will remove relevant content promptly.`;
+const FOOTER_COPYRIGHT = `Fan-made website. Not affiliated with IO Interactive, Amazon MGM Studios, EON Productions, Bulwark Studios, Kasedo Games, Games Workshop, or any platform holder. All game names, trademarks, artwork and intellectual properties belong to their respective owners. All content and tools are created for reference and entertainment purposes only. If you have copyright concerns, please contact: support@nanobananas.me. We will remove relevant content promptly.`;
 
 export function Footer() {
   const [year, setYear] = useState<number>(2025);
@@ -19,6 +19,9 @@ export function Footer() {
         <div className="flex flex-wrap gap-6 mb-6">
           <Link href="/" className="text-sm text-[#B0B0B0] hover:text-[#E6C200] transition-colors">
             Home
+          </Link>
+          <Link href="/games" className="text-sm text-[#B0B0B0] hover:text-[#E6C200] transition-colors">
+            Games
           </Link>
           <Link href="/guides" className="text-sm text-[#B0B0B0] hover:text-[#E6C200] transition-colors">
             Guides
@@ -45,7 +48,7 @@ export function Footer() {
 
         {/* E-E-A-T Short Disclaimer */}
         <p className="mt-2 text-xs text-[#B0B0B0]/50 leading-relaxed">
-          Unofficial fan-made site. Not affiliated with Games Workshop, Bulwark Studios, or Kasedo Games. Contact:{' '}
+          Unofficial fan-made site. Not affiliated with the developers, publishers, licensors, or platform holders of covered games. Contact:{' '}
           <a href="mailto:support@nanobananas.me" className="underline hover:text-[#E6C200] transition-colors">
             support@nanobananas.me
           </a>
@@ -53,7 +56,7 @@ export function Footer() {
 
         {/* Site Credit */}
         <p className="mt-3 text-xs text-[#B0B0B0]/50">
-          &copy; {year} mechanicus2.nanobananas.me
+          &copy; {year} Nanobananas Game Guides
         </p>
       </div>
     </footer>

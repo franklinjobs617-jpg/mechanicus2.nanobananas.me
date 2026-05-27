@@ -9,10 +9,17 @@ import './globals.css';
 const ADSENSE_PUBLISHER_ID = 'ca-pub-3383070348689557';
 
 export const metadata: Metadata = {
-  title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II Fan Site',
+  metadataBase: new URL('https://mechanicus2.nanobananas.me'),
+  title: 'Nanobananas Game Guides | Launch Guides, Walkthroughs & Tools',
   description:
-    'Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, unit rankings, and Necron walkthrough.',
+    'Nanobananas Game Guides is an unofficial English-first hub for game walkthroughs, release guides, PC settings, troubleshooting, and fan-made tools.',
   keywords: [
+    'Nanobananas Game Guides',
+    'game guides',
+    '007 First Light guide',
+    '007 First Light walkthrough',
+    '007 First Light settings',
+    '007 First Light release date',
     'Mechanicus 2 guide',
     'Warhammer 40k Mechanicus II',
     'Mechanicus 2 crafting calculator',
@@ -28,20 +35,23 @@ export const metadata: Metadata = {
     'best units Mechanicus 2',
   ],
   authors: [{ name: 'Nanobananas', url: 'https://mechanicus2.nanobananas.me' }],
+  alternates: {
+    canonical: 'https://mechanicus2.nanobananas.me',
+  },
   openGraph: {
-    title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II',
+    title: 'Nanobananas Game Guides',
     description:
-    'Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, and walkthroughs.',
+    'Unofficial English-first game guides hub for launch coverage, walkthroughs, settings, troubleshooting, and fan-made tools.',
     url: 'https://mechanicus2.nanobananas.me',
-    siteName: 'Mechanicus II Guide',
+    siteName: 'Nanobananas Game Guides',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II',
+    title: 'Nanobananas Game Guides',
     description:
-    'Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, and walkthroughs.',
+    'Unofficial game guides, walkthroughs, settings help, troubleshooting, and fan-made tools.',
   },
   robots: {
     index: true,

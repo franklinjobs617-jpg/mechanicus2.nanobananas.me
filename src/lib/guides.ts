@@ -1,18 +1,38 @@
+import { firstLightGuides } from './007-guides';
+
 export interface GuideData {
   slug: string;
   title: string;
   metaTitle: string;
   metaDescription: string;
+  gameSlug?: string;
+  gameTitle?: string;
+  primaryKeyword?: string;
+  lastUpdated?: string;
   tag: string;
   thumbnail: string;
   excerpt: string;
   sections: GuideSection[];
+  faqs?: GuideFAQ[];
+  sources?: GuideSource[];
+  relatedGuideSlugs?: string[];
 }
 
 export interface GuideSection {
   heading: string;
   paragraphs: string[];
   image?: string;
+  imageAlt?: string;
+}
+
+export interface GuideFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface GuideSource {
+  label: string;
+  href: string;
 }
 
 const _GUIDE_NOTICE =
@@ -338,8 +358,17 @@ export const guides: Record<string, GuideData> = {
       },
     ],
   },
+  ...firstLightGuides,
 };
 
 export const guideSlugs = Object.keys(guides);
+
+export const sortedGuideSlugs = [...guideSlugs].sort((a, b) => {
+  const first = guides[a];
+  const second = guides[b];
+  if (first.gameSlug === '007-first-light' && second.gameSlug !== '007-first-light') return -1;
+  if (first.gameSlug !== '007-first-light' && second.gameSlug === '007-first-light') return 1;
+  return first.title.localeCompare(second.title);
+});
 
 export const GUIDE_NOTICE = _GUIDE_NOTICE;

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { guides } from '@/lib/guides';
+import { gameSlugs } from '@/lib/games';
 
 const BASE_URL = 'https://mechanicus2.nanobananas.me';
 
@@ -9,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
+  }));
+
+  const gameEntries = gameSlugs.map((slug) => ({
+    url: `${BASE_URL}/games/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: slug === '007-first-light' ? 0.95 : 0.75,
   }));
 
   return [
@@ -24,6 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/games`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    ...gameEntries,
     ...guideEntries,
     {
       url: `${BASE_URL}/tools`,

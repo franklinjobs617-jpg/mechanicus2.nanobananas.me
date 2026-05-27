@@ -2,11 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - Mechanicus 2 Fan Site',
+  title: 'Terms of Service - Nanobananas Game Guides',
   description:
-    'Terms of Service for the Mechanicus 2 unofficial fan site. Usage rules, copyright statement, disclaimers, and contact info.',
+    'Terms of Service for Nanobananas Game Guides. Usage rules, copyright statement, disclaimers, and contact info.',
+  alternates: {
+    canonical: 'https://mechanicus2.nanobananas.me/terms',
+  },
   openGraph: {
-    title: 'Terms of Service - Mechanicus 2 Fan Site',
+    title: 'Terms of Service - Nanobananas Game Guides',
     description:
       'Terms of Service for the Mechanicus 2 unofficial fan site. Usage rules, copyright, disclaimers.',
   },
