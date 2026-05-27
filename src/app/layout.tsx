@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ResourcePreload } from '@/components/ResourcePreload';
 import { getWebSiteSchema } from '@/lib/schema';
 import './globals.css';
-import Script from 'next/script';
+
+const ADSENSE_PUBLISHER_ID = 'ca-pub-3383070348689557';
 
 export const metadata: Metadata = {
   title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II Fan Site',
@@ -45,6 +47,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    'google-adsense-account': ADSENSE_PUBLISHER_ID,
+  },
 };
 
 export default function RootLayout({
@@ -56,22 +61,12 @@ export default function RootLayout({
     <html lang="en">
       <ResourcePreload />
       <body className="antialiased min-h-screen flex flex-col">
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-3383070348689557"
-        ></meta>
-
         <Script
-          id="adsbygoogle-init"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-3383070348689557",
-                enable_page_level_ads: true
-              });
-            `,
-          }}
-        ></Script>
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DJXK1Z37XG"
