@@ -1,0 +1,205 @@
+# Development Specification (SPEC)
+**Project Name**: Warhammer 40,000: Mechanicus II Guide & Tools Site
+**Domain**: `games.nanobananas.me`
+**Tech Stack**: Next.js | GitHub + Vercel
+**Language**: English Only
+**Target**: PC & Mobile Responsive
+**Contact Email**: support@nanobananas.me
+
+---
+
+## 1. Project Overview
+### 1.1 Project Positioning
+Unofficial fan-made website for *Warhammer 40,000: Mechanicus II*. Contains game guides, practical calculators & planners. Target Google organic traffic based on collected search keywords, deploy Google AdSense for monetization, fully comply with copyright rules to avoid infringement risks.
+
+### 1.2 Core Goals
+1. Rank for high-intent keywords: `mechanicus 2 guide`, `mechanicus 2 builds`, `mechanicus 2 factions`, `mechanicus 2 units` etc.
+2. Develop practical front-end tools (crafting calculator & build planner) to improve page dwell time.
+3. Build scalable site structure for future game content expansion.
+4. Keep independent operation from main domain `nanobananas.me`, isolate risks.
+
+### 1.3 Reference Resources
+- Steam Store: https://store.steampowered.com/app/2532480/Warhammer_40000_Mechanicus_II/
+- Related Video: https://www.youtube.com/watch?v=ekWDGK76-tA
+- Core Search Keywords (GSC):
+  mechanicus 2 guide, mechanicus 2 tips, mechanicus 2 factions, mechanicus 2 builds, mechanicus 2 units, mechanicus 2 walkthrough, necron campaign etc.
+
+---
+
+## 2. Deployment Configuration (Vercel + GitHub + Domain)
+### 2.1 Vercel & Domain Binding Steps
+1. Push all Next.js code to GitHub `main` branch, link repo to Vercel.
+2. Enter Vercel Project → `Settings` → `Domains` → Add domain: `games.nanobananas.me`.
+3. Copy Vercel provided CNAME record value.
+4. Go to domain registrar DNS management, add new record:
+   - Type: `CNAME`
+   - Host: `games`
+   - Value: Vercel CNAME address
+5. Wait 5~30 mins for DNS validation to pass.
+
+### 2.2 ads.txt Configuration (AdSense Required)
+1. Deploy `ads.txt` on **main domain root** (`nanobananas.me`), subdomain will inherit automatically.
+2. File content (replace with your AdSense publisher ID):
+   ```txt
+   google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+   ```
+3. Verify access: `https://nanobananas.me/ads.txt`
+
+### 2.3 Running Limits
+- No restrictions on front-end logic, local storage is allowed.
+- **No back-end data crawling / game reverse engineering / memory reading**. All data is static & manually sorted.
+
+---
+
+## 3. Site Structure & Routes (Next.js App Router)
+### 3.1 Global Navigation (Fixed Top Bar)
+Navigation Menu: `Home` | `Guides` | `Tools` | `About`
+- Mobile: Collapse into hamburger menu, keep all menu items.
+
+### 3.2 Page List & Functions
+| Route | Page Name | Core Function |
+|-------|-----------|---------------|
+| `/` | Home | Site intro, quick entry for hot tools & latest guides, external official links |
+| `/guides` | Guides List | Classified game guide articles |
+| `/guides/[slug]` | Guide Detail | Full guide content + internal link to related tools |
+| `/tools` | Tools List | Entrance of all functional tools |
+| `/tools/crafting-calculator` | Crafting Calculator | Equipment recipe & material cost calculator (Priority 1) |
+| `/tools/build-planner` | Build Planner | Unit & equipment loadout simulator (Priority 2) |
+| `/about` | About & Copyright | Site statement, full copyright notice, contact info |
+
+---
+
+## 4. Function Development Rules
+### 4.1 Guide Section
+#### 4.1.1 Priority Guide Articles (Match GSC Keywords)
+1. Mechanicus 2 Complete Beginner Guide
+2. Factions Introduction: Tech-Priests & Necrons
+3. Best Units for Both Factions
+4. Optimal Tech-Priest Builds
+5. Necron Campaign Walkthrough
+
+#### 4.1.2 Content Rules
+1. All text **rewrite manually**, DO NOT copy text from Steam, game client or official wiki.
+2. Add guide-specific copyright notice at the end of every article.
+3. SEO rules:
+   - Page title: Within 60 characters, include core keywords.
+   - Meta description: Within 160 characters.
+   - Naturally embed target keywords, no keyword stuffing.
+4. Image rules:
+   - Allowed: AI-generated style images (similar to game tone, no official assets); self-cropped game screenshots (remove all official UI, logos & watermarks).
+   - Forbidden: Official logo, original art, official UI pictures.
+
+### 4.2 Core Tools Section
+#### 4.2.1 Crafting Calculator (Highest Priority)
+##### Functions
+- Classify & filter equipment (Weapon / Armor / Implant / Mod).
+- Query single equipment: required materials + quantity + pre-conditions.
+- Calculate total materials & count rare materials for multiple equipment.
+- Show material drop sources (manually sorted description).
+- Support text copy for material list.
+- Local storage: retain user selection after page refresh.
+
+##### Compliance Rules
+- All equipment/material data: static manually input data.
+- Simplify attribute & name description, no direct copy of in-game text.
+
+#### 4.2.2 Build Planner
+##### Functions
+- Faction switch: Tech-Priests / Necrons.
+- Select units + match equipment slots.
+- Real-time display combined attributes (simplified display).
+- Support save & share build plan (text/link).
+- Local storage for saved plans.
+
+##### Compliance Rules
+- Use minimalist vector icons instead of official unit/equipment icons.
+- All description text rewritten manually.
+
+### 4.3 External Official Links (Home Page Bottom)
+#### Link Area Name: `External Official Links`
+Use custom minimalist vector icons (**no official brand logos**):
+1. Steam → https://store.steampowered.com/app/2532480/Warhammer_40000_Mechanicus_II/
+2. Reddit → Reserve link entrance (fill actual URL later)
+3. Discord → Reserve link entrance (fill actual URL later)
+
+---
+
+## 5. UI & Visual Style Specification
+### 5.1 Overall Tone (Match game dark mechanical style)
+- Main Background: `#0F2620` (Dark Green) / `#1A1A1A` (Pure Black)
+- Highlight Color: `#E6C200` (Yellow, for emphasis, button border & key data)
+- Main Text: `#F0F0F0` (White)
+- Secondary Text: `#B0B0B0` (Light Gray)
+
+### 5.2 Font & Icon
+- Font: Sans-serif (Inter / Roboto), **do not use exclusive game font**.
+- Icon: Uniform minimalist vector icons. **Forbidden: all official game icons & logos**.
+
+### 5.3 Component Style
+- Button: Rounded rectangle, yellow border / background, brightness change on hover.
+- Card/Module: Dark background + thin yellow border + subtle shadow.
+- Table: Simple style, use yellow to highlight key columns (e.g. rare materials).
+
+### 5.4 Responsive Requirement
+- Full responsive layout, compatible with desktop, tablet & mobile.
+- Tool interactive elements will not be blocked on mobile.
+
+---
+
+## 6. Copyright & Legal Statements (Mandatory Deployment)
+> All statements must be placed on specified positions, English only.
+
+### 6.1 Global Footer (All Pages Display)
+```txt
+Fan-made website. Not affiliated with Bulwark Studios, Kasedo Games or Games Workshop. All game names, trademarks, artwork and intellectual properties belong to their respective owners. All content and tools are created for reference and entertainment purposes only. If you have copyright concerns, please contact: support@nanobananas.me. We will remove relevant content promptly.
+```
+
+### 6.2 Tool Page Top Notice (Each Tool Page)
+```txt
+Unofficial fan tool for Warhammer 40,000: Mechanicus II. All game data is manually collected, sorted and rephrased by fans, not copied from official game files or documents. This tool has no official cooperation with game developers and publishers.
+```
+
+### 6.3 Guide Article End Notice (Each Guide)
+```txt
+This is an unofficial player guide. All in-game content belongs to the corresponding copyright holders.
+```
+
+### 6.4 Hard Restrictions (Development Red Line)
+1. **Assets**: Strictly prohibited to use official logo, original paintings, game UI, official promotional images.
+2. **Text**: Prohibit direct copy of in-game text, Steam content or official documents; all content must be rephrased.
+3. **Data**: No game client reverse engineering, no network crawling, no automatic data synchronization. All data is static manual entry.
+4. **Words**: Do not use words like `Official`, `Authorized`, `Partnered` on the whole site.
+5. **Functions**: Do not develop cheats, modifiers, save tampering functions; only provide auxiliary query & calculation tools.
+
+---
+
+## 7. Google AdSense Configuration
+### 7.1 Ad Placement Rules
+- Reuse existing AdSense ad code from main domain, no new ad units required.
+- **Forbidden**: Pop-up ads, floating ads, auto-play ads. Only standard static ads.
+- Placement positions:
+  1. Home Page: Sidebar (PC) / Footer (Mobile)
+  2. Guide Detail: Insert between paragraphs (1 ad per 3~4 paragraphs, do not interrupt reading)
+  3. Tool Page: Sidebar & bottom area, **do not cover tool interactive areas**.
+
+### 7.2 Pre-check
+Ensure `ads.txt` takes effect before site goes online.
+
+---
+
+## 8. Coze Extended Work
+1. Use network access to complete game mechanism research, enrich guide content & tool basic data.
+2. Collect community common questions, add FAQ module optionally.
+3. Optimize page SEO meta information for all routes.
+
+---
+
+## 9. Pre-Launch Checklist
+- [ ] All copyright statements deployed correctly
+- [ ] No official game logos / UI / original art on the whole site
+- [ ] All text & data manually rephrased, no copied official content
+- [ ] AdSense ads load normally, no occlusion
+- [ ] `ads.txt` valid and no AdSense warning
+- [ ] Domain `games.nanobananas.me` accessible, responsive layout normal
+- [ ] External official links jump correctly
+- [ ] All tools run normally, local storage works
