@@ -1,45 +1,45 @@
-import type { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { ResourcePreload } from "@/components/ResourcePreload";
-import { getWebSiteSchema } from "@/lib/schema";
-import Script from "next/script";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { ResourcePreload } from '@/components/ResourcePreload';
+import { getWebSiteSchema } from '@/lib/schema';
+import './globals.css';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II Fan Site",
+  title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II Fan Site',
   description:
-    "Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, unit rankings, and Necron walkthrough.",
+    'Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, unit rankings, and Necron walkthrough.',
   keywords: [
-    "Mechanicus 2 guide",
-    "Warhammer 40k Mechanicus II",
-    "Mechanicus 2 crafting calculator",
-    "Mechanicus 2 build planner",
-    "Mechanicus 2 tips",
-    "Mechanicus 2 factions",
-    "Mechanicus 2 builds",
-    "Mechanicus 2 units",
-    "Mechanicus 2 walkthrough",
-    "Necron campaign",
-    "Tech-Priest builds",
-    "Mechanicus II tools",
-    "best units Mechanicus 2",
+    'Mechanicus 2 guide',
+    'Warhammer 40k Mechanicus II',
+    'Mechanicus 2 crafting calculator',
+    'Mechanicus 2 build planner',
+    'Mechanicus 2 tips',
+    'Mechanicus 2 factions',
+    'Mechanicus 2 builds',
+    'Mechanicus 2 units',
+    'Mechanicus 2 walkthrough',
+    'Necron campaign',
+    'Tech-Priest builds',
+    'Mechanicus II tools',
+    'best units Mechanicus 2',
   ],
-  authors: [{ name: "Nanobananas", url: "https://mechanicus2.nanobananas.me" }],
+  authors: [{ name: 'Nanobananas', url: 'https://mechanicus2.nanobananas.me' }],
   openGraph: {
-    title: "Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II",
+    title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II',
     description:
-      "Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, and walkthroughs.",
-    url: "https://mechanicus2.nanobananas.me",
-    siteName: "Mechanicus II Guide",
-    locale: "en_US",
-    type: "website",
+    'Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, and walkthroughs.',
+    url: 'https://mechanicus2.nanobananas.me',
+    siteName: 'Mechanicus II Guide',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II",
+    card: 'summary_large_image',
+    title: 'Mechanicus 2 Guide & Tools | Warhammer 40k Mechanicus II',
     description:
-      "Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, and walkthroughs.",
+    'Unofficial fan-made guide & tools for Warhammer 40k: Mechanicus II. Crafting calculator, build planner, faction guides, and walkthroughs.',
   },
   robots: {
     index: true,
