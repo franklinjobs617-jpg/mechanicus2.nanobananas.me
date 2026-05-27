@@ -78,6 +78,24 @@ const outputs = [
     width: 960,
     height: 540,
   },
+  {
+    filename: '007-steam-deck-settings.webp',
+    source: 'https://cdn.fastly.steamstatic.com/steamcommunity/public/images/apps/3768760/15c1c53eecaa1b6b783c79a20fa41358f1c87760.jpg',
+    width: 960,
+    height: 540,
+  },
+  {
+    filename: '007-collectibles-locations.webp',
+    source: 'https://cdn.fastly.steamstatic.com/steamcommunity/public/images/apps/3768760/c5dff90146c86da3743a0b8fd8c03a60cedb0587.jpg',
+    width: 960,
+    height: 540,
+  },
+  {
+    filename: '007-tacsim-challenges.webp',
+    source: 'https://cdn.fastly.steamstatic.com/steamcommunity/public/images/apps/3768760/e542f0685d2cc8a2c1fc389630fa16076f4dac88.jpg',
+    width: 960,
+    height: 540,
+  },
 ];
 
 async function download(url, filename) {

@@ -6,10 +6,11 @@ import { guides } from '@/lib/guides';
 const featuredGuideSlugs = [
   '007-first-light-crashing-not-launching-fix',
   '007-first-light-best-settings',
+  '007-first-light-steam-deck-settings',
   '007-first-light-beginner-guide',
-  '007-first-light-release-date-platforms',
+  '007-first-light-collectibles-locations',
+  '007-first-light-tacsim-challenges-clearance-level',
   'beginner-guide',
-  'necron-campaign-walkthrough',
 ];
 
 const featuredTools = [
@@ -149,7 +150,7 @@ export default function Home() {
                   className="group rounded-lg border border-[rgba(230,194,0,0.2)] bg-[#162B24] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[rgba(230,194,0,0.5)]"
                 >
                   <span className="inline-flex rounded-md bg-[rgba(230,194,0,0.15)] px-2.5 py-0.5 text-xs font-medium text-[#E6C200]">
-                    {guide.gameTitle ?? 'Mechanicus II'} · {guide.tag}
+                    {guide.gameTitle ?? 'Mechanicus II'} - {guide.tag}
                   </span>
                   <h3 className="mt-3 text-base font-semibold text-[#F0F0F0] group-hover:text-[#E6C200] transition-colors">
                     {guide.title}

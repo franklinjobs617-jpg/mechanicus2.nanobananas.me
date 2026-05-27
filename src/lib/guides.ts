@@ -12,10 +12,62 @@ export interface GuideData {
   tag: string;
   thumbnail: string;
   excerpt: string;
+  quickAnswer?: string;
+  claimStatus?: GuideClaimStatus;
+  lastVerified?: string;
+  keyFacts?: GuideKeyFact[];
+  tables?: GuideTable[];
+  checklists?: GuideChecklist[];
+  steps?: GuideStepGroup[];
+  warnings?: GuideWarning[];
+  spoilerSections?: GuideSpoilerSection[];
+  sourceNotes?: string[];
   sections: GuideSection[];
   faqs?: GuideFAQ[];
   sources?: GuideSource[];
   relatedGuideSlugs?: string[];
+}
+
+export type GuideClaimStatus = 'official' | 'reviewed' | 'community' | 'unverified';
+
+export interface GuideKeyFact {
+  label: string;
+  value: string;
+  status?: GuideClaimStatus;
+  note?: string;
+}
+
+export interface GuideTable {
+  title: string;
+  description?: string;
+  headers: string[];
+  rows: string[][];
+  caption?: string;
+}
+
+export interface GuideChecklist {
+  title: string;
+  description?: string;
+  items: string[];
+}
+
+export interface GuideStepGroup {
+  title: string;
+  description?: string;
+  items: string[];
+}
+
+export interface GuideWarning {
+  title: string;
+  body: string;
+  severity?: 'info' | 'warning' | 'danger';
+}
+
+export interface GuideSpoilerSection {
+  title: string;
+  summary: string;
+  paragraphs?: string[];
+  items?: string[];
 }
 
 export interface GuideSection {
