@@ -147,15 +147,32 @@ export default function Home() {
                 <Link
                   key={slug}
                   href={`/guides/${slug}`}
-                  className="group rounded-lg border border-[rgba(230,194,0,0.2)] bg-[#162B24] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[rgba(230,194,0,0.5)]"
+                  className="group overflow-hidden rounded-lg border border-[rgba(230,194,0,0.2)] bg-[#162B24] transition-all duration-200 hover:-translate-y-0.5 hover:border-[rgba(230,194,0,0.5)] hover:shadow-lg hover:shadow-black/15"
                 >
-                  <span className="inline-flex rounded-md bg-[rgba(230,194,0,0.15)] px-2.5 py-0.5 text-xs font-medium text-[#E6C200]">
-                    {guide.gameTitle ?? 'Mechanicus II'} - {guide.tag}
-                  </span>
-                  <h3 className="mt-3 text-base font-semibold text-[#F0F0F0] group-hover:text-[#E6C200] transition-colors">
-                    {guide.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[#B0B0B0] leading-relaxed">{guide.excerpt}</p>
+                  <div className="relative aspect-[16/8.5] overflow-hidden border-b border-[rgba(230,194,0,0.12)]">
+                    <Image
+                      src={guide.thumbnail}
+                      alt={guide.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#162B24] via-[#162B24]/25 to-transparent" />
+                    <span className="absolute left-4 top-4 rounded-md bg-[#E6C200] px-2.5 py-0.5 text-xs font-semibold text-[#0F2620]">
+                      {guide.tag}
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#E6C200]/80">
+                      {guide.gameTitle ?? 'Mechanicus II'}
+                    </p>
+                    <h3 className="mt-2 text-base font-semibold leading-snug text-[#F0F0F0] transition-colors group-hover:text-[#E6C200]">
+                      {guide.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#B0B0B0] line-clamp-3">
+                      {guide.excerpt}
+                    </p>
+                  </div>
                 </Link>
               );
             })}
